@@ -39,6 +39,10 @@ const Home = () => {
                   <option value="general">General Knowledge</option>
                   <option value="science">Science</option>
                   <option value="history">History</option>
+                  <option value="food_and_drink">food and drink</option>
+                  <option value="film_and_tv">film and tv</option>
+                  <option value="geography">Geography</option>
+                  <option value="sport_and_leisure">sport and leisure</option>
                 </select>
               </div>
               <div className="mb-4">

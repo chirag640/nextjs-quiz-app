@@ -79,7 +79,7 @@ const Quiz = ({ params }) => {
   };
 
   const handleTimeUp = () => {
-    setShowScoreModal(true);
+    nextQuestion();
   };
 
   if (loading) {
