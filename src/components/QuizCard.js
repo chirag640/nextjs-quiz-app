@@ -18,7 +18,7 @@ const QuizCard = ({ question, options, selectedOption, handleOptionSelect, corre
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-2xl">
+    <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-3xl">
       <h2 className="text-xl font-bold mb-4">Question: {currentQuestionIndex + 1}</h2>
       <p className="mb-4">{question}</p>
       <div className="grid grid-cols-1 gap-4">

@@ -7,7 +7,7 @@ const ScoreModal = ({ score, totalQuestions }) => {
       <div className="bg-white p-6 rounded-lg shadow-lg text-center">
         <h2 className="text-2xl font-bold mb-4">Quiz Completed!</h2>
         <p className="text-lg mb-6">Your Score: {score} / {totalQuestions}</p>
-        <Link href="/" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">
+        <Link href="/" className="bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-400">
             Play Again
         </Link>
       </div>
