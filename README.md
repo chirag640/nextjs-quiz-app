@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Quiz Application
+
+This project is a dynamic quiz application built with [Next.js](https://nextjs.org/), designed to test users' knowledge across various categories. Users can select a category and difficulty level to engage in interactive quizzes, with questions fetched from an external API (`the-trivia-api.com`). The application includes a timer for each question, encouraging quick thinking while ensuring accuracy.
 
 ## Getting Started
 
-First, run the development server:
+To run this application locally, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Clone the repository:
+```bash git clone https://github.com/yourusername/quiz-app.git```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Navigate to the project directory and install dependencies:
+```bash cd quiz-app npm install```
+4. Open your browser and go to [http://localhost:3000](http://localhost:3000) to view the application.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Upon visiting the application, you'll be presented with a homepage where you can choose a category and difficulty level for your quiz. After making your selections, click "Start Quiz" to begin. Each question comes with a time limit, and selecting an answer or waiting for the time to expire will advance you to the next question. Upon completing the quiz, your score will be displayed.
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+- **Dynamic Quizzes**: Categories and difficulty levels dynamically affect the questions presented.
+- **Interactive Timer**: A countdown timer adds excitement and urgency to answering questions.
+- **Scoring System**: Accurately track your score based on correct answers.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Contributions to this project are welcome! If you'd like to contribute, please fork the repository, make your changes, and submit a pull request. Before contributing, please review the existing code and consider discussing your proposed changes with the community.
 
-## Deploy on Vercel
+## Roadmap
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Authentication**: Allow users to create accounts and save their scores.
+- **Progress Tracking**: Display the user's progress throughout the quiz.
+- **Leaderboards**: Showcase high scores across all users or within specific categories.
+- **Dark Mode**: Provide an option to switch between light and dark themes.
+- **Responsive Design**: Ensure the application looks great on all device sizes.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Contact
+
+For inquiries or feedback, please open an issue on this repository.
