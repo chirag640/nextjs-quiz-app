@@ -56,7 +56,7 @@ const Quiz = ({ params }) => {
   const handleOptionSelect = (option, index) => {
     if (selectedOption === null) {
       setSelectedOption(index);
-      setIsRunning(false); // Stop the timer when an option is selected
+      setIsRunning(false);
       const isCorrect = correctAnswer === option;
       if (isCorrect) {
         setScore(score + 1);
@@ -66,7 +66,7 @@ const Quiz = ({ params }) => {
 
   const nextQuestion = () => {
     setSelectedOption(null);
-    setIsRunning(true); // Restart the timer for the next question
+    setIsRunning(true); 
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {

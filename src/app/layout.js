@@ -3,6 +3,7 @@ import '../app/globals.css';
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <title>Quiz App</title>
     <UserProvider>
       <body>{children}</body>
     </UserProvider>
