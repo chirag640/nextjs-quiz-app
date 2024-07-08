@@ -1,32 +1,38 @@
+// src/components/QuizCard.js
+
 import React from 'react';
 
-const QuizCard = ({ question, options, selectedOption, handleOptionSelect, correctAnswer, currentQuestionIndex }) => {
-  const getButtonClass = (index) => {
-    if (selectedOption === null) {
-      return 'bg-gray-200 hover:bg-gray-300';
-    }
-
-    if (selectedOption === index) {
-      return options[selectedOption] === correctAnswer ? 'bg-green-500 text-white' : 'bg-red-500 text-white';
-    }
-
-    if (options[index] === correctAnswer) {
-      return 'bg-green-500 text-white';
-    }
-
-    return 'bg-gray-200';
-  };
-
+const QuizCard = ({
+  question,
+  options,
+  selectedOption,
+  handleOptionSelect,
+  correctAnswer,
+  currentQuestionIndex,
+}) => {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-3xl">
-      <h2 className="text-xl font-bold mb-4">Question: {currentQuestionIndex + 1}</h2>
-      <p className="mb-4">{question}</p>
-      <div className="grid grid-cols-1 gap-4">
+    <div className="w-full bg-white p-8 rounded-lg shadow-md">
+      <div className="mb-6">
+        <h2 className="text-2xl font-bold mb-2">
+          Question {currentQuestionIndex + 1}
+        </h2>
+        <p className="text-lg">{question}</p>
+      </div>
+      <div className="space-y-4">
         {options.map((option, index) => (
           <button
             key={index}
             onClick={() => handleOptionSelect(option, index)}
-            className={`py-2 px-4 rounded ${getButtonClass(index)}`}
+            className={`w-full py-2 px-4 text-left rounded-md transition-colors duration-300 
+              ${
+                selectedOption !== null
+                  ? option === correctAnswer
+                    ? 'bg-green-500 text-white'
+                    : index === selectedOption
+                    ? 'bg-red-500 text-white'
+                    : 'bg-gray-200'
+                  : 'bg-gray-200 hover:bg-yellow-300'
+              }`}
             disabled={selectedOption !== null}
           >
             {option}

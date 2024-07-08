@@ -1,26 +1,28 @@
+// src/app/page.js
+
 "use client";
 
-import { useUser } from "@auth0/nextjs-auth0/client";
-import { useState } from "react";
-import Link from "next/link";
-import rightImage from "../../public/sidePhoto.png";
-import Image from "next/image";
-import Header from "@/components/Header";
+import { useUser } from '@auth0/nextjs-auth0/client';
+import { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import rightImage from '../../public/sidePhoto.png';
+import Header from '@/components/Header';
 
 const Home = () => {
-  const [category, setCategory] = useState("general");
-  const [difficulty, setDifficulty] = useState("easy");
+  const [category, setCategory] = useState('general');
+  const [difficulty, setDifficulty] = useState('easy');
   const { user } = useUser();
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 ">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       {/* Header Section */}
-      <Header/>
+      <Header />
 
       {/* Main Content Section */}
-      <main className="w-full flex-1 flex items-center justify-center py-8 px-20">
-        <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/3 px-4">
-          <h1 className="text-4xl font-bold mb-6">Welcome to the Quiz App</h1>
+      <main className="w-full flex-1 flex flex-col md:flex-row items-center justify-center py-8 px-4 md:px-20">
+        <div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8 md:mb-0">
+          <h1 className="text-3xl md:text-4xl font-bold mb-6">Welcome to the Quiz App</h1>
           <p className="text-lg mb-6">
             Test your knowledge across various subjects with our interactive quizzes. Choose a category and difficulty level to get started!
           </p>
@@ -39,17 +41,14 @@ const Home = () => {
                   <option value="general">General Knowledge</option>
                   <option value="science">Science</option>
                   <option value="history">History</option>
-                  <option value="food_and_drink">food and drink</option>
-                  <option value="film_and_tv">film and tv</option>
+                  <option value="food_and_drink">Food and Drink</option>
+                  <option value="film_and_tv">Film and TV</option>
                   <option value="geography">Geography</option>
-                  <option value="sport_and_leisure">sport and leisure</option>
+                  <option value="sport_and_leisure">Sport and Leisure</option>
                 </select>
               </div>
               <div className="mb-4">
-                <label
-                  htmlFor="difficulty"
-                  className="block text-lg font-medium"
-                >
+                <label htmlFor="difficulty" className="block text-lg font-medium">
                   Select Difficulty:
                 </label>
                 <select
@@ -70,16 +69,16 @@ const Home = () => {
                 Start Quiz
               </Link>
             </div>
-          ):(
+          ) : (
             <Link
-                href='/api/auth/login'
-                className="bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-400 block w-1/2 text-center"
-              >
-                Start Quiz
-              </Link>
+              href="/api/auth/login"
+              className="bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-400 block w-1/2 text-center"
+            >
+              Start Quiz
+            </Link>
           )}
         </div>
-        <div className="w-full md:w-1/2 lg:w-1/2 xl:w-2/3 px-4 py-8">
+        <div className="w-full md:w-1/2 lg:w-2/3 px-4 py-8">
           <Image
             src={rightImage}
             alt="Quiz App Image"

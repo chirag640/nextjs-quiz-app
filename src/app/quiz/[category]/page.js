@@ -1,12 +1,12 @@
-// pages/quiz/[category].js
-"use client"
+// src/app/quiz/[category]/page.js
+
+"use client";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import QuizCard from "../../../components/QuizCard";
 import Timer from "../../../components/Timer";
 import ScoreModal from "../../../components/ScoreModal";
 import Header from "@/components/Header";
-
 
 const Quiz = ({ params }) => {
   const searchParams = useSearchParams();
@@ -66,7 +66,7 @@ const Quiz = ({ params }) => {
 
   const nextQuestion = () => {
     setSelectedOption(null);
-    setIsRunning(true); 
+    setIsRunning(true);
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
@@ -75,6 +75,7 @@ const Quiz = ({ params }) => {
   };
 
   const exitQuiz = () => {
+    setIsRunning(false);
     setShowScoreModal(true);
   };
 
@@ -108,40 +109,44 @@ const Quiz = ({ params }) => {
   return (
     <>
       <Header />
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 ">
-      <div className="w-full max-w-3xl">
-        <Timer key={currentQuestionIndex} duration={10} onTimeUp={handleTimeUp} isRunning={isRunning} />
-        <QuizCard
-          question={currentQuestion.question.text}
-          options={options}
-          selectedOption={selectedOption}
-          handleOptionSelect={handleOptionSelect}
-          correctAnswer={correctAnswer}
-          currentQuestionIndex={currentQuestionIndex}
-        />
-        <div className="flex justify-between mt-4">
-          <button
-            onClick={nextQuestion}
-            className="bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-400"
-            disabled={selectedOption === null}
-          >
-            Next Question
-          </button>
-          <button
-            onClick={exitQuiz}
-            className="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-700"
-          >
-            Exit Quiz
-          </button>
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+        <div className="w-full max-w-3xl px-4">
+          <Timer
+            key={currentQuestionIndex}
+            duration={10}
+            onTimeUp={handleTimeUp}
+            isRunning={isRunning}
+          />
+          <QuizCard
+            question={currentQuestion.question.text}
+            options={options}
+            selectedOption={selectedOption}
+            handleOptionSelect={handleOptionSelect}
+            correctAnswer={correctAnswer}
+            currentQuestionIndex={currentQuestionIndex}
+          />
+          <div className="flex justify-between mt-4">
+            <button
+              onClick={exitQuiz}
+              className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700"
+            >
+              Exit Quiz
+            </button>
+            <button
+              onClick={nextQuestion}
+              className={`bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 ${
+                selectedOption === null ? "opacity-50 cursor-not-allowed" : ""
+              }`}
+              disabled={selectedOption === null}
+            >
+              Next Question
+            </button>
+          </div>
         </div>
       </div>
-      {showScoreModal && (
-        <ScoreModal score={score} totalQuestions={questions.length} />
-      )}
-    </div>
+      {showScoreModal && <ScoreModal score={score} total={questions.length} />}
     </>
   );
-  
 };
 
 export default Quiz;
